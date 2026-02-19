@@ -184,8 +184,8 @@ export function distanceToRoute(position, waypoints) {
  */
 export async function fetchMLPrediction(features) {
   try {
-    const apiUrl = import.meta.env.VITE_ML_API_URL || 'http://localhost:5000';
-    const response = await fetch(`${apiUrl}/predict`, {
+    const apiUrl = import.meta.env.VITE_ML_API_URL || '';
+    const response = await fetch(`${apiUrl}/ml/predict`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(features),

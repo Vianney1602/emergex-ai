@@ -1,9 +1,30 @@
 {
     "version": 2,
+    "builds": [
+        {
+            "src": "package.json",
+            "use": "@vercel/static-build",
+            "config": {
+                "distDir": "dist"
+            }
+        },
+        {
+            "src": "api/index.js",
+            "use": "@vercel/node"
+        },
+        {
+            "src": "ml_service/app.py",
+            "use": "@vercel/python"
+        }
+    ],
     "rewrites": [
         {
             "source": "/api/(.*)",
-            "destination": "http://localhost:3001/api/$1"
+            "destination": "/api/index.js"
+        },
+        {
+            "source": "/ml/(.*)",
+            "destination": "/ml_service/app.py"
         },
         {
             "source": "/(.*)",

@@ -7,8 +7,11 @@ import emergencyRoutes from './routes/emergency.js';
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Middleware
-app.use(cors({ origin: ['http://localhost:5173', 'http://localhost:5174'], credentials: true }));
+// Middleware (Updated for production)
+app.use(cors({
+    origin: ['http://localhost:5173', 'http://localhost:5174', 'https://emergex-ai.vercel.app'],
+    credentials: true
+}));
 app.use(express.json());
 
 // Routes
@@ -24,7 +27,11 @@ app.get('/api/health', (req, res) => {
     });
 });
 
-app.listen(PORT, () => {
-    console.log(`[EmergeX Server] Running on http://localhost:${PORT}`);
-    console.log(`[EmergeX Server] Twilio configured: ${!!(process.env.TWILIO_ACCOUNT_SID && process.env.TWILIO_AUTH_TOKEN !== 'your_auth_token_here')}`);
-});
+export default app;
+
+if (process.env.NODE_ENV !== 'production' || import.meta.url === `file://${process.argv[1]}`) {
+    app.listen(PORT, () => {
+        console.log(`[EmergeX Server] Running on http://localhost:${PORT}`);
+        console.log(`[EmergeX Server] Twilio configured: ${!!(process.env.TWILIO_ACCOUNT_SID && process.env.TWILIO_AUTH_TOKEN !== 'your_auth_token_here')}`);
+    });
+}
