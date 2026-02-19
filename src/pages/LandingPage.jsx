@@ -48,7 +48,10 @@ export default function LandingPage() {
 
       {/* Hero */}
       <section className="hero">
-        <span className="hero__badge animate-in">🛡️ AI-Powered Urban Safety</span>
+        <span className="hero__badge animate-in">
+          <img src="/EmergeX img.jpeg" alt="Logo" style={{ height: '16px', marginRight: '8px', verticalAlign: 'middle' }} />
+          AI-Powered Urban Safety
+        </span>
         <h1 className="hero__title animate-in delay-1">
           Navigate Smarter with <span>Predictive Safety Intelligence</span>
         </h1>

@@ -25,7 +25,7 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <Link to="/" className="navbar__brand">
-        <span className="navbar__logo">🛡️</span>
+        <img src="/EmergeX img.jpeg" alt="EmergeX Logo" className="navbar__logo-img" style={{ height: '32px', marginRight: '10px' }} />
         <span className="navbar__title">EmergeX AI</span>
       </Link>
 
