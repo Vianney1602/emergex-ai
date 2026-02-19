@@ -13,7 +13,7 @@
             "use": "@vercel/node"
         },
         {
-            "src": "ml_service/app.py",
+            "src": "api/ml.py",
             "use": "@vercel/python"
         }
     ],
@@ -24,7 +24,7 @@
         },
         {
             "source": "/ml/(.*)",
-            "destination": "/ml_service/app.py"
+            "destination": "/api/ml.py"
         },
         {
             "source": "/(.*)",
