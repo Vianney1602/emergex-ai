@@ -27,7 +27,7 @@
             "destination": "/api/ml.py"
         },
         {
-            "source": "/(.*)",
+            "source": "/((?!api|ml|assets|.*\\..*).*)",
             "destination": "/index.html"
         }
     ]
