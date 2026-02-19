@@ -16,6 +16,10 @@ export default defineConfig({
         target: 'http://localhost:3001',
         changeOrigin: true,
       },
+      '/ml': {
+        target: 'http://localhost:5000',
+        changeOrigin: true,
+      },
     },
   },
 })

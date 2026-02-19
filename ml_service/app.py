@@ -22,19 +22,19 @@ def load_model():
     else:
         print("Model file not found. Ensure train_model.py has been run.")
 
-@app.route('/', methods=['GET'])
+@app.route('/ml', methods=['GET'])
 def index():
     return jsonify({
         "message": "EmergeX AI ML Service is running",
-        "endpoints": ["/", "/health", "/predict"],
+        "endpoints": ["/ml", "/ml/health", "/ml/predict"],
         "model_loaded": model is not None
     })
 
-@app.route('/health', methods=['GET'])
+@app.route('/ml/health', methods=['GET'])
 def health_check():
     return jsonify({"status": "healthy", "model_loaded": model is not None})
 
-@app.route('/predict', methods=['POST'])
+@app.route('/ml/predict', methods=['POST'])
 def predict():
     if not model:
         return jsonify({"error": "Model not trained/loaded"}), 503
