@@ -1,0 +1,28 @@
+.risk-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.risk-badge--low {
+  background: rgba(34, 197, 94, 0.15);
+  color: #22c55e;
+}
+.risk-badge--med {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+}
+.risk-badge--high {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+.risk-badge__score {
+  font-weight: 400;
+  opacity: 0.8;
+}

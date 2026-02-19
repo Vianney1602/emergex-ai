@@ -1,0 +1,14 @@
+{
+  "users": [
+    {
+      "id": "usr_1771448099007_23nh0b",
+      "name": "Vianney Infant Raj",
+      "email": "vianneyinfantraj1602@gmail.com",
+      "phone": "8270737274",
+      "passwordHash": "$2a$12$5vAtt2Sb1UNtDlsL.znX6uHdj5RGvVgYnjK1oi8/V8LfGjsVTSLfq",
+      "emergencyContacts": [],
+      "createdAt": "2026-02-18T20:54:59.007Z",
+      "updatedAt": "2026-02-18T21:01:12.875Z"
+    }
+  ]
+}

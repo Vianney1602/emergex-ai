@@ -1,0 +1,59 @@
+/* Navbar Actions */
+.navbar__actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-right: 1rem;
+}
+
+.navbar__user {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.navbar__user:hover {
+    color: var(--accent);
+}
+
+.navbar__btn {
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.4rem 0.9rem;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition);
+}
+
+.navbar__btn--login {
+    background: var(--accent);
+    color: #fff;
+}
+
+.navbar__btn--login:hover {
+    background: var(--accent-hover);
+}
+
+.navbar__btn--logout {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+}
+
+.navbar__btn--logout:hover {
+    border-color: var(--danger);
+    color: var(--danger);
+}
+
+@media (max-width: 768px) {
+    .navbar__user {
+        display: none;
+    }
+
+    .navbar__btn--logout {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.75rem;
+    }
+}
