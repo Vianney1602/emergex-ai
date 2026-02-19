@@ -89,6 +89,40 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* Model Insights Section */}
+      <section className="ml-insights animate-in delay-5">
+        <h2 className="features__heading">Predictive Model Insights</h2>
+        <p className="features__sub">
+          Below is a real-time visualization of our Random Forest Regressor's performance
+          and the key environmental factors that drive our safety scoring system.
+        </p>
+
+        <div className="ml-insights__container">
+          <div className="ml-insights__image-wrapper">
+            <img
+              src="/ml-stats.png"
+              alt="ML Model Training Stats"
+              className="ml-insights__image"
+            />
+          </div>
+
+          <div className="ml-insights__content">
+            <div className="insight-card">
+              <h3>Training Accuracy</h3>
+              <p>Our model achieves a 0.83 ROC-AUC score on validation data, ensuring high reliability in risk classification.</p>
+            </div>
+            <div className="insight-card">
+              <h3>Dynamic Adaptation</h3>
+              <p>The system recalibrates risk based on temporal patterns, lighting conditions, and proximity to emergency services.</p>
+            </div>
+            <div className="insight-card">
+              <h3>Transparent Intelligence</h3>
+              <p>We believe in "Explainable AI." The graphs show exactly which factors contribute most to your safety score.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Features */}
       <section className="features">
         <h2 className="features__heading">Core Capabilities</h2>
