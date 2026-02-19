@@ -1,5 +1,22 @@
 {
     "version": 2,
+    "builds": [
+        {
+            "src": "package.json",
+            "use": "@vercel/static-build",
+            "config": {
+                "distDir": "dist"
+            }
+        },
+        {
+            "src": "api/index.js",
+            "use": "@vercel/node"
+        },
+        {
+            "src": "api/ml.py",
+            "use": "@vercel/python"
+        }
+    ],
     "rewrites": [
         {
             "source": "/api/(.*)",
@@ -10,10 +27,7 @@
             "destination": "/api/ml.py"
         },
         {
-            "handle": "filesystem"
-        },
-        {
-            "source": "/(.*)",
+            "source": "/((?!api|ml|.*\\.).*)",
             "destination": "/index.html"
         }
     ]
