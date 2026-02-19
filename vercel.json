@@ -10,7 +10,10 @@
             "destination": "/api/ml.py"
         },
         {
-            "source": "/((?!api|ml|assets|sw.js|favicon.ico|manifest.json|.*\\..*).*)",
+            "handle": "filesystem"
+        },
+        {
+            "source": "/(.*)",
             "destination": "/index.html"
         }
     ]
