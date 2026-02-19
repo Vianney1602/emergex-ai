@@ -60,8 +60,14 @@ export default function EmergencyPanel() {
       alert('Please provide location consent before sending an alert.');
       return;
     }
-    if (!contacts.length) {
-      alert(user ? 'Add emergency contacts in your Profile.' : 'Add at least one emergency contact.');
+    // Logic refinement: Include unsaved inputs if they are filled and valid
+    let finalContacts = [...contacts];
+    if (newName.trim() && newPhone.trim()) {
+      finalContacts.push({ name: newName.trim(), phone: newPhone.trim() });
+    }
+
+    if (!finalContacts.length) {
+      alert(user ? 'Add emergency contacts in your Profile.' : 'Please add or enter at least one emergency contact.');
       return;
     }
 
@@ -86,14 +92,21 @@ export default function EmergencyPanel() {
     setCountdown(null);
     setSending(true);
     setEmergencyMode(true);
+
+    // Recalculate final contacts including unsaved inputs
+    let finalContacts = [...contacts];
+    if (newName.trim() && newPhone.trim()) {
+      finalContacts.push({ name: newName.trim(), phone: newPhone.trim() });
+    }
+
     try {
       const pos = posRef.current || { lat: 13.0827, lng: 80.2707 };
       const res = await sendEmergencyAlert({
         lat: pos.lat,
         lng: pos.lng,
-        contacts,
+        contacts: finalContacts,
         message: 'Emergency alert from EmergeX AI user',
-        token, // Pass JWT token for real backend alerts
+        token,
       });
       setResult(res);
     } catch (err) {
@@ -102,7 +115,7 @@ export default function EmergencyPanel() {
       setSending(false);
       setTimeout(() => setEmergencyMode(false), 5000);
     }
-  }, [contacts, setEmergencyMode, token]);
+  }, [contacts, newName, newPhone, setEmergencyMode, token]);
 
   // Countdown tick
   useEffect(() => {
